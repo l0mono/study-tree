@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_18_023543) do
+ActiveRecord::Schema.define(version: 2023_06_18_070217) do
 
   create_table "studies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "book"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2023_06_18_023543) do
     t.date "published_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "picture"
   end
 
 end

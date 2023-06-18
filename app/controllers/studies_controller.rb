@@ -65,6 +65,6 @@ class StudiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def study_params
-      params.require(:study).permit(:book, :time, :page, :note, :published_at)
+      params.require(:study).permit(:picture,:book, :time, :page, :note, :published_at)
     end
 end
