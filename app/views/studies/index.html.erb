@@ -3,6 +3,7 @@
 </head>
 <p id="notice"><%= notice %></p>
 
+<body>
 <h1>Studies</h1>
 
 <table>
@@ -21,7 +22,7 @@
   <tbody>
     <% @studies.each do |study| %>
       <tr>
-        <td><%= study.picture %></td>
+        <td><%= image_tag(study.picture_url,width:'50px') if study.picture.present? %></td>
         <td><%= study.book %></td>
         <td><%= study.time %></td>
         <td><%= study.page %></td>
@@ -38,3 +39,5 @@
 <br>
 
 <%= link_to 'New Study', new_study_path %>
+
+</body>
