@@ -24,13 +24,13 @@
       <tr>
         <td><%= image_tag(study.picture_url,width:'50px') if study.picture.present? %></td>
         <td><%= study.book %></td>
-        <td><%= study.time %></td>
-        <td><%= study.page %></td>
+        <td><%= study.time.to_s + '時間' %></td>
+        <td><%= study.page.to_s + 'ページ' %></td>
         <td><%= study.note %></td>
         <td><%= study.published_at %></td>
-        <td><%= link_to 'Show', study %></td>
-        <td><%= link_to 'Edit', edit_study_path(study) %></td>
-        <td><%= link_to 'Destroy', study, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+        <td><%= link_to 'この記録を見る', study %></td>
+        <td><%= link_to 'この記録を編集する', edit_study_path(study) %></td>
+        <td><%= link_to 'この記録を削除する', study, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -38,6 +38,6 @@
 
 <br>
 
-<%= link_to 'New Study', new_study_path %>
+<%= link_to '記録する', new_study_path %>
 
 </body>
