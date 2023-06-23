@@ -4,8 +4,25 @@
 <p id="notice"><%= notice %></p>
 
 <body>
-<h1>Studies</h1>
 
+<header>
+<header>
+    <h1>
+        <a href="/">RICO NOTES</a>
+    </h1>
+    <nav class="pc-nav">
+        <ul>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">SERVICE</a></li>
+            <li><a href="#">COMPANY</a></li>
+            <li><a href="#">CONTACT</a></li>
+        </ul>
+    </nav>
+</header>
+
+</header>
+
+<div class="tl">
 <table>
   <thead>
     <tr class="column_name">
@@ -29,12 +46,13 @@
         <td><%= study.note %></td>
         <td><%= study.published_at %></td>
         <td><%= link_to 'この記録を見る', study %></td>
-        <td><%= link_to 'この記録を編集する', edit_study_path(study) %></td>
-        <td><%= link_to 'この記録を削除する', study, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+        <td><%= link_to '編集', edit_study_path(study) %></td>
+        <td><%= link_to '削除', study, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 
