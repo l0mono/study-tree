@@ -1,24 +1,27 @@
 version: '3'
 services:
+  # データベース
   db:
-    image: mysql:5.7
+    image: mysql:5.7                     # イメージ
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password      # rootユーザのパスワード
     ports:
-      - "3306:3306"
+      - "3306:3306"                      # ホストとコンテナのポートをマッピング
     volumes:
-      - db-volume:/var/lib/mysql
+      - db-volume:/var/lib/mysql         # ボリュームマウント (データの永続化)
 
-web:
-  build: .
-  command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
-  entrypoint: /usr/bin/entrypoint.sh  # 追加する行
-  ports:
-    - "3000:3000"
-  volumes:
-    - .:/app
-  depends_on:
-    - db
+  # アプリケーションサーバ
+  web:
+    build: .                             # Dockerfileからイメージをビルド
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"  # PIDファイルの削除、サーバの起動
+    entrypoint: /usr/bin/entrypoint.sh  # 追加する行
+    volumes:
+      - .:/app                           # バインドマウント (コードの変更をリアルタイムで反映)
+    ports:
+      - "3000:3000"                      # ホストとコンテナのポートをマッピング
+    depends_on:
+      - db                               # db に依存していることを明示
 
+# ボリュームの作成
 volumes:
   db-volume:
