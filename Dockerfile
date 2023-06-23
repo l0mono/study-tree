@@ -27,8 +27,8 @@ RUN yarn install --check-files
 RUN bundle exec rails webpacker:compile
 
 # Rails特有の問題を回避するために、コンテナ実行時にPIDファイルを削除
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
+COPY entrypoint.sh /study-tree/
+RUN chmod +x /study-tree/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 
 # 3000番ポートを設定
