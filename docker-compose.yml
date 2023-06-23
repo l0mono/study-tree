@@ -9,7 +9,7 @@ services:
     volumes:
       - db-volume:/var/lib/mysql
 
-  web:
+web:
   build: .
   command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
   entrypoint: /usr/bin/entrypoint.sh  # 追加する行
