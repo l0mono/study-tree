@@ -39,15 +39,17 @@
   <tbody>
     <% @studies.each do |study| %>
       <tr>
-        <td><%= image_tag(study.picture_url,width:'50px') if study.picture.present? %></td>
-        <td><%= study.book %></td>
+        <td><%= image_tag(study.picture_url,width:'100px') if study.picture.present? %></td>
+        <div id="samune">
+        <td id="book"><%= study.book %></td>
+        <div>
         <td><%= study.time.to_s + '時間' %></td>
         <td><%= study.page.to_s + 'ページ' %></td>
+        </div>
+        </div>
         <td><%= study.note %></td>
         <td><%= study.published_at %></td>
-        <td><%= link_to 'この記録を見る', study %></td>
-        <td><%= link_to '編集', edit_study_path(study) %></td>
-        <td><%= link_to '削除', study, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+        <td><%= link_to 'show', study %></td>
       </tr>
     <% end %>
   </tbody>
@@ -56,6 +58,5 @@
 
 <br>
 
-<%= link_to '記録する', new_study_path %>
 
 </body>

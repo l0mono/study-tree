@@ -29,3 +29,6 @@
 
 <%= link_to 'Edit', edit_study_path(@study) %> |
 <%= link_to 'Back', studies_path %>
+
+<%= link_to '編集', edit_study_path(@study) %>
+<%= link_to '削除', @study, method: :delete, data: { confirm: '本当に削除しますか？' } %>
