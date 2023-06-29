@@ -23,27 +23,25 @@
     <nav class="pc-nav">
       <ul>
         <li><%= link_to '記録する', new_study_path %></li>
-        <li><a href="#">SERVICE</a></li>
-        <li><a href="#">COMPANY</a></li>
-        <li><a href="#">CONTACT</a></li>
+        <li><a href="#">本棚</a></li>
+        <li><a href="#">目標</a></li>
+        <li><a href="#">設定</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
+    <h2 id="tl_title">あなたのタイムライン</h2>
     <div class="tl">
       <% @studies.each do |study| %>
         <div class="study-post">
           <div class="image-container">
-            <%= image_tag(study.picture_url, width: '100px') if study.picture.present? %>
+            <%= image_tag(study.picture_url, width: '125px') if study.picture.present? %>
           </div>
           <div class="text-container">
-            <div><%= study.book %></div>
-            <div><%= study.time.to_s + '時間' %></div>
-            <div><%= study.page.to_s + 'ページ' %></div>
-            <div><%= study.note %></div>
-            <div><%= study.published_at %></div>
-            <div><%= link_to 'show', study %></div>
+            <div id="book"><%= study.book %></div>
+            <div id ="time"><%= study.time.to_s+ '時間' %></div>
+            <div id="page"><%= study.page.to_s + 'ページ' %></div>
           </div>
         </div>
       <% end %>
@@ -51,3 +49,12 @@
     <br>
   </main>
 </body>
+
+
+<%# <div><%= study.book %></div> 
+<%# <div><%= study.time.to_s + '時間' %></div> 
+<%# <div><%= study.page.to_s + 'ページ' %></div> 
+<%# <div><%= study.note %></div> 
+<%# <div><%= study.published_at %></div> 
+<%# <div><%= link_to 'show', study %></div> 
+

@@ -45,5 +45,40 @@ header ul {
     font-size:25px;
  }
 
+ .tl{
+    margin-left: 550px;
+ }
+ 
+ #tl_title {
+    margin-left:550px;
+    padding: 0.4em 0.5em;
+    color: #494949;
+    background: #f4f4f4;
+    border-left: solid 5px #4b4c4d;
+    border-bottom: solid 3px #d7d7d7;
+    display: inline-block; /* 追加 */
+  }
+
+  .study-post{
+    margin-top: 10px;
+    margin-bottom: 10px;
+   
+  }
+
+  #book{
+    font-size: 30px;
+    margin-top: 10px;
+    margin-left: 15px;
+  }
+  #time{
+    font-size:23px;
+    margin-top: 22px;
+    margin-left: 15px;
+  }
+  #page{
+    font-size:23px;
+    margin-top: 30px;
+    margin-left: 15px;
+  }
 
   
