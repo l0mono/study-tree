@@ -1,62 +1,53 @@
 <head>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: rgb(231, 228, 225);
+    }
+    .study-post {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    .tl {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
 </head>
-<p id="notice"><%= notice %></p>
 
 <body>
-
-<header>
-<header>
+  <header>
     <h1>
-        <a href="/">Study Tree</a>
+      <a href="/">Study Tree</a>
     </h1>
     <nav class="pc-nav">
-        <ul>
-            <li><%= link_to '記録する', new_study_path %></li>
-            <li><a href="#">SERVICE</a></li>
-            <li><a href="#">COMPANY</a></li>
-            <li><a href="#">CONTACT</a></li>
-        </ul>
+      <ul>
+        <li><%= link_to '記録する', new_study_path %></li>
+        <li><a href="#">SERVICE</a></li>
+        <li><a href="#">COMPANY</a></li>
+        <li><a href="#">CONTACT</a></li>
+      </ul>
     </nav>
-</header>
+  </header>
 
-</header>
-
-<div class="tl">
-<table>
-  <thead>
-    <tr class="column_name">
-      <th>Picture</th>
-      <th>Book</th>
-      <th>Time</th>
-      <th>Page</th>
-      <th>Note</th>
-      <th>Published at</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @studies.each do |study| %>
-      <tr>
-        <td><%= image_tag(study.picture_url,width:'100px') if study.picture.present? %></td>
-        <div id="samune">
-        <td id="book"><%= study.book %></td>
-        <div>
-        <td><%= study.time.to_s + '時間' %></td>
-        <td><%= study.page.to_s + 'ページ' %></td>
+  <main>
+    <div class="tl">
+      <% @studies.each do |study| %>
+        <div class="study-post">
+          <div class="image-container">
+            <%= image_tag(study.picture_url, width: '100px') if study.picture.present? %>
+          </div>
+          <div class="text-container">
+            <div><%= study.book %></div>
+            <div><%= study.time.to_s + '時間' %></div>
+            <div><%= study.page.to_s + 'ページ' %></div>
+            <div><%= study.note %></div>
+            <div><%= study.published_at %></div>
+            <div><%= link_to 'show', study %></div>
+          </div>
         </div>
-        </div>
-        <td><%= study.note %></td>
-        <td><%= study.published_at %></td>
-        <td><%= link_to 'show', study %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
-
-<br>
-
-
+      <% end %>
+    </div>
+    <br>
+  </main>
 </body>
