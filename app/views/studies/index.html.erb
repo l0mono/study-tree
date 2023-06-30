@@ -34,18 +34,18 @@
     <h2 class="welcome-message">l085440さん！おかえりなさい</h1>
     <h2 id="tl_title">あなたのタイムライン</h2>
     <div class="tl">
-      <% @studies.each do |study| %>
-        <div class="study-post">
-          <div class="image-container">
-            <%= image_tag(study.picture_url, width: '125px') if study.picture.present? %>
-          </div>
-          <div class="text-container">
-            <div id="book"><%= study.book %></div>
-            <div id ="time"><%= study.time.to_s+ '時間' %></div>
-            <div id="page"><%= study.page.to_s + 'ページ' %></div>
-          </div>
+    <% @studies.each do |study| %>
+      <div class="study-post">
+        <div class="image-container">
+          <%= image_tag(study.picture_url, width: '125px') if study.picture.present? %>
         </div>
-      <% end %>
+        <div class="text-container">
+          <div id="book"><%= study.book %></div>
+          <div id="time"><%= study.time.to_s + '時間' %></div>
+          <div id="page"><%= study.page.to_s + 'ページ' %></div>
+        </div>
+      </div>
+    <% end %>
     </div>
     <br>
   </main>

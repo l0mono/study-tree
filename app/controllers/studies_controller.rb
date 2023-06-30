@@ -3,7 +3,7 @@ class StudiesController < ApplicationController
 
   # GET /studies or /studies.json
   def index
-    @studies = Study.all
+    @studies = Study.order(created_at: :desc)
   end
 
   # GET /studies/1 or /studies/1.json
